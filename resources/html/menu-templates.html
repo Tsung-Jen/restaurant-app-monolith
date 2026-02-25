@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu Templates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+        }
+        .page-break {
+            page-break-after: always;
+            margin-bottom: 2cm;
+        }
+        .menu-header {
+            text-align: center;
+            margin-bottom: 2cm;
+            color: #dc2626;
+        }
+        .menu-header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .menu-header p {
+            font-size: 14px;
+            color: #666;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .menu-section {
+            margin-bottom: 2cm;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc2626;
+            border-bottom: 2px solid #dc2626;
+            padding-bottom: 10px;
+            margin-bottom: 1cm;
+        }
+        .menu-item {
+            margin-bottom: 1cm;
+            page-break-inside: avoid;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .item-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        .item-price {
+            font-weight: bold;
+            font-size: 16px;
+            color: #dc2626;
+        }
+        .item-description {
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+            margin-left: 10px;
+        }
+        .footer {
+            margin-top: 2cm;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- APPETIZERS MENU -->
+<div class="menu-container">
+    <div class="menu-header">
+        <h1>🍜 APPETIZERS 🍜</h1>
+        <p>Start your meal with our delightful appetizers</p>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Cold Appetizers</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Spring Rolls</span>
+                <span class="item-price">€4.90</span>
+            </div>
+            <div class="item-description">Crispy rolls filled with vegetables and fresh shrimp, served with sweet and sour sauce</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Edamame</span>
+                <span class="item-price">€3.50</span>
+            </div>
+            <div class="item-description">Steamed young soybean pods sprinkled with sea salt</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Seaweed Salad</span>
+                <span class="item-price">€3.90</span>
+            </div>
+            <div class="item-description">Fresh seaweed with light sesame dressing</div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Hot Appetizers</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Fried Wonton</span>
+                <span class="item-price">€4.50</span>
+            </div>
+            <div class="item-description">Golden fried wontons filled with pork and shrimp, served with sweet and sour sauce</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Dumplings (6 pieces)</span>
+                <span class="item-price">€5.90</span>
+            </div>
+            <div class="item-description">Steamed pork and vegetable dumplings with ginger soy sauce</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Chicken Wings</span>
+                <span class="item-price">€6.90</span>
+            </div>
+            <div class="item-description">Crispy chicken wings tossed in spicy garlic sauce</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Vegetable Tempura</span>
+                <span class="item-price">€5.50</span>
+            </div>
+            <div class="item-description">Lightly battered and deep-fried seasonal vegetables</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Thank you for choosing our restaurant | All prices in EUR</p>
+    </div>
+</div>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<!-- MAIN COURSES MENU -->
+<div class="menu-container">
+    <div class="menu-header">
+        <h1>🍚 MAIN COURSES 🍚</h1>
+        <p>Our signature dishes prepared fresh daily</p>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Chicken Dishes</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Sweet and Sour Chicken</span>
+                <span class="item-price">€9.90</span>
+            </div>
+            <div class="item-description">Tender chicken breast in tangy sweet and sour sauce with pineapple and bell peppers</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Kung Pao Chicken</span>
+                <span class="item-price">€10.90</span>
+            </div>
+            <div class="item-description">Spicy chicken with roasted peanuts, bell peppers, and dried chilies</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Orange Chicken</span>
+                <span class="item-price">€10.50</span>
+            </div>
+            <div class="item-description">Crispy fried chicken with fresh orange flavor and hint of spice</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Chicken with Cashew Nuts</span>
+                <span class="item-price">€10.50</span>
+            </div>
+            <div class="item-description">Diced chicken with roasted cashew nuts and vegetables in light sauce</div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Beef Dishes</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Beef with Broccoli</span>
+                <span class="item-price">€11.90</span>
+            </div>
+            <div class="item-description">Tender beef slices with fresh broccoli florets in oyster sauce</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Beef with Garlic Sauce</span>
+                <span class="item-price">€11.90</span>
+            </div>
+            <div class="item-description">Premium beef with aromatic garlic sauce and fresh vegetables</div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Seafood Dishes</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Shrimp with Garlic</span>
+                <span class="item-price">€12.90</span>
+            </div>
+            <div class="item-description">Fresh shrimp with aromatic garlic sauce and seasonal vegetables</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Salt and Pepper Shrimp</span>
+                <span class="item-price">€12.90</span>
+            </div>
+            <div class="item-description">Crispy fried shrimp with salt, white pepper, and scallions</div>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <div class="section-title">Vegetarian</div>
+        
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Mapo Tofu</span>
+                <span class="item-price">€9.50</span>
+            </div>
+            <div class="item-description">Silky soft tofu in spicy sauce with ground pork, Sichuan pepper</div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-name">Vegetable Stir-Fry</span>
+                <span class="item-price">€8.50</span>
+            </div>
+            <div class="item-description">Mixed seasonal vegetables in light garlic sauce</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>All main courses served with steamed rice | Adjustments can be made upon request</p>
+    </div>
+</div>
+
+</body>
+</html>
