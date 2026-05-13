@@ -1,6 +1,6 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
-import { ref, watch, onMounted, onUnmounted, computed } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 import Header from '@/Components/Header.vue';
 import Footer from '@/Components/Footer.vue';
 
@@ -8,11 +8,6 @@ const page = usePage();
 const showSuccessModal = ref(false);
 const currentSlide = ref(0);
 let autoRotateInterval = null;
-
-// Computed property to get flash message
-const successMessage = computed(() => {
-  return page.props.flash?.reservation_success;
-});
 
 // Food slider images with descriptions
 const foodSlides = [
@@ -48,15 +43,17 @@ const foodSlides = [
   }
 ];
 
-// Watch for reservation success flash message
+// Watch for any changes in page props (Inertia flash messages)
 watch(
-  () => successMessage.value,
-  (message) => {
-    if (message) {
-      console.log('✅ Success message detected:', message);
+  () => page.props,
+  (newProps) => {
+    console.log('📋 Page props updated:', newProps);
+    if (newProps.flash?.reservation_success) {
+      console.log('✅ Success message detected:', newProps.flash.reservation_success);
       showSuccessModal.value = true;
     }
-  }
+  },
+  { deep: true }
 );
 
 const closeModal = () => {
@@ -93,9 +90,9 @@ const resetAutoRotate = () => {
 
 onMounted(() => {
   startAutoRotate();
-  // Check if there's a success flash message on page load
-  if (successMessage.value) {
-    console.log('✅ Modal shown on mount with message:', successMessage.value);
+  // Check if there's already a success flash message on first load
+  if (page.props.flash?.reservation_success) {
+    console.log('🎉 Modal shown on component mount');
     showSuccessModal.value = true;
   }
 });

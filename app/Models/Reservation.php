@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Services\ReservationService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,45 +31,37 @@ class Reservation extends Model
 
     /**
      * Get reservations by date and session
+     * @deprecated Use ReservationService::getByDateAndSession() instead
      */
     public static function getByDateAndSession($date, $session)
     {
-        return self::where('reservation_date', $date)
-            ->where('session', $session)
-            ->where('status', '!=', 'cancelled')
-            ->get();
+        return app(ReservationService::class)->getByDateAndSession($date, $session);
     }
 
     /**
      * Get total guests for a date and session
+     * @deprecated Use ReservationService::getTotalGuestsForSession() instead
      */
     public static function getTotalGuestsForSession($date, $session)
     {
-        return self::where('reservation_date', $date)
-            ->where('session', $session)
-            ->where('status', '!=', 'cancelled')
-            ->sum('number_of_guests');
+        return app(ReservationService::class)->getTotalGuestsForSession($date, $session);
     }
 
     /**
      * Check if a session is fully booked
+     * @deprecated Use ReservationService::isSessionFullyBooked() instead
      */
     public static function isSessionFullyBooked($date, $session, $requiredGuests)
     {
-        $maxCapacity = 55;
-        $currentTotal = self::getTotalGuestsForSession($date, $session);
-        
-        return ($currentTotal + $requiredGuests) > $maxCapacity;
+        return app(ReservationService::class)->isSessionFullyBooked($date, $session, $requiredGuests);
     }
 
     /**
      * Get remaining capacity for a session
+     * @deprecated Use ReservationService::getRemainingCapacity() instead
      */
     public static function getRemainingCapacity($date, $session)
     {
-        $maxCapacity = 55;
-        $currentTotal = self::getTotalGuestsForSession($date, $session);
-        
-        return max(0, $maxCapacity - $currentTotal);
+        return app(ReservationService::class)->getRemainingCapacity($date, $session);
     }
 }

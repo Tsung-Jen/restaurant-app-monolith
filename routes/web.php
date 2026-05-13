@@ -8,29 +8,29 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Landing');
-});
+})->name('landing');
 
 // Menu Route
 Route::get('/menu', function () {
     return Inertia::render('Menu');
 })->name('menu');
 
-// Reservation Routes - Public
-Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
-Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-Route::get('/reservations/check-availability', [ReservationController::class, 'getByDateSession'])->name('reservations.check-availability');
+// Reservation Routes - Public with Rate Limiting
+Route::get('/reservations/create', [ReservationController::class, 'create'])
+    ->name('reservations.create');
+
+Route::post('/reservations', [ReservationController::class, 'store'])
+    ->middleware('throttle:5,1') // 5 reservations per 1 minute
+    ->name('reservations.store');
+
+Route::get('/reservations/check-availability', [ReservationController::class, 'getByDateSession'])
+    ->middleware('throttle:30,1') // 30 requests per 1 minute
+    ->name('reservations.check-availability');
 
 // Admin Dashboard - Protected Routes
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/reservations/admin/dashboard', [ReservationController::class, 'dashboard'])->name('reservations.admin.dashboard');
-    Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
-    Route::patch('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
-    Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
